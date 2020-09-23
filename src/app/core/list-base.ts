@@ -1,8 +1,9 @@
 import { ModelBase } from './model-base';
 import { HttpService } from './http/http.service';
-import { OnInit, Injector, AfterContentInit, OnDestroy } from '@angular/core';
+import { OnInit, Injector, AfterContentInit, OnDestroy, Directive } from '@angular/core';
 
 
+@Directive()
 export class ListBaseComponent<M extends ModelBase, S extends HttpService<M>> implements OnInit, OnDestroy {
   constructor(protected injector: Injector, protected service: S) {  }
 
