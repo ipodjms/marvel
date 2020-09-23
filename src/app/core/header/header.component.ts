@@ -12,22 +12,11 @@ constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
   ngOnInit() {
   }
 
-  public navigateToAlbuns(): void {
-    this.router.navigate(['albuns'], {
+  public navigateToHome(): void {
+    this.router.navigate([''], {
       replaceUrl: false,
     });
   }
 
-  public navigateToCharacters(): void {
-    this.router.navigate(['characters'], {
-      replaceUrl: false,
-    });
-  }
-
-  public navigateToTodo(): void {
-    this.router.navigate(['todos'], {
-      replaceUrl: false,
-    });
-  }
 
 }

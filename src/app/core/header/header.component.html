@@ -1,13 +1,6 @@
 <div class="header">
-    <button mat-button color="primary" [matMenuTriggerFor]="menu">Menu</button>
-    <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="navigateToCharacters()">Characters</button>
-        <button mat-menu-item (click)="navigateToAlbuns()">Albuns</button>
-      <button mat-menu-item (click)="navigateToTodo()">Todos</button>
-    </mat-menu>
 
-    <h2>Marvel</h2>
-
+    <h2 (click)="navigateToHome()">Marvel - João Marcos</h2>
   
 </div>
 

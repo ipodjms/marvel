@@ -9,13 +9,14 @@ import {MatCardModule} from '@angular/material/card';
 
 import {MatSelectModule} from '@angular/material/select';
 import { DebounceClickDirective } from './debouce-click.directive';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
   declarations: [DebounceClickDirective],
   imports: [
-    CommonModule, MatMenuModule, MatButtonModule, MatCardModule, MatSelectModule
+    CommonModule, MatMenuModule, MatButtonModule, MatCardModule, MatSelectModule, MatInputModule
   ],
-  exports: [MatMenuModule, MatButtonModule, MatCardModule, MatSelectModule, DebounceClickDirective]
+  exports: [MatMenuModule, MatButtonModule, MatCardModule, MatSelectModule, DebounceClickDirective, MatInputModule]
 })
 export class SharedModule { }
