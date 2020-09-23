@@ -24,12 +24,9 @@
     </mat-form-field>
 
 
-<div *ngIf="this.models?.data?.results">
-    <div *ngFor="let character of this.models.data.results">
-        <app-character [character]="character" class="c-pointer"> </app-character>
-        <div>
-            {{checkFavorite(character.id)}}
-        </div>
+<div *ngIf="this.models?.data?.results" class="row">
+    <div *ngFor="let character of this.models.data.results" class="col-4">
+        <app-character [character]="character" class="c-pointer"> </app-character>        
      </div>
 </div>
 

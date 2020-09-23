@@ -1,3 +1,4 @@
+import { Thumbnail } from './thumbnail';
 import { Data } from './data';
 
 export class Character {
@@ -11,5 +12,6 @@ export class Character {
     public id?: string;
     // internal use
     public name?: string;
+    public thumbnail?: Thumbnail;
 }
 

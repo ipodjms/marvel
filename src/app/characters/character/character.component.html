@@ -1,5 +1,10 @@
 <mat-card (click)="navigateToDetail(character)" class="home-card">
-    <mat-card-title>{{character.name}}</mat-card-title>    
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{character.name}}</mat-card-title>
+      <mat-card-subtitle>{{character?.data?.results[0]?.title}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image *ngIf="character" src="{{character.thumbnail.path}}.{{character.thumbnail.extension}} " alt="">
 </mat-card>
 
 
