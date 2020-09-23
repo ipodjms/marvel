@@ -36,8 +36,8 @@ export class HttpService<T> {
     return this.httpClient.get<T>(`${this.url}/${this.endpoint}/${id}`).pipe(map((data) => data as T));
   }
 
-  public getAll(): Observable<T[]> {
-   return this.httpClient.get<T[]>(`${this.url}/${this.endpoint}?apikey=${environment.API_KEY}`).pipe(map((data) => data as T[]));
+  public getAll(): Observable<T> {
+   return this.httpClient.get<T>(`${this.url}/${this.endpoint}?apikey=${environment.API_KEY}`).pipe(map((data) => data as T));
   }
 
 
