@@ -20,32 +20,33 @@ export class CharacterListComponent extends ListBaseComponent<Character, Charact
 public params = '';
 public allParams: {key: string, value: string}[] = [];
 public searchText = '';
+public selected = '';
 
 public autoSearch = new Subject<string>();
 
   constructor(injector: Injector, service: CharacterService, private router: Router, private activatedRoute: ActivatedRoute) {
     super(injector, service);
     this.autoSearch.pipe(debounceTime(800), distinctUntilChanged()).subscribe((value) => {
-      // this.saveSubject();
-      alert('faca a busca');
-      this.addParams('name', value);
+      if (!!value && value !== '') {
+        this.addParams('name', value);
+      } else {
+        this.loadList();
+      }
     });
   }
 
   ngOnInit() {
     super.ngOnInit();
-    // this.addParams(null, null);
    }
 
    public addParams(k: string, v: string): void {
     this.allParams = [];
     this.allParams.push({key: k, value: v});
-    //this.allParams.push({key: 'name', value: 'Aaron Stack'});
-    // this.allParams.push({key: 'orderBy', value: 'name'});
-    this.search(null);
+    this.search();
    }
 
-   public search(params: string): void {
+   public search(): void {
+    this.selected = null;
     this.params = '';
     this.allParams.map(param => {
       this.params = this.params += param.key + '=' + param.value + '&';
@@ -57,8 +58,8 @@ public autoSearch = new Subject<string>();
    }
 
    public orderBy(event): void {
-     console.log (event);
-    this.addParams('orderBy', event);
+     this.searchText = '';
+     this.addParams('orderBy', event);
    }
 
 }
