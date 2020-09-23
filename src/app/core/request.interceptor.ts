@@ -28,7 +28,7 @@ export class RequestInterceptor implements HttpInterceptor {
         } else {
           errMsg = `Error Code: ${error.status},  Mensagem: ${error.error}`;
           if (error.status === 401) {
-            errMsg = `${"Wrong user or password."}`;
+            errMsg = `${"Algo deu errado."}`;
           }
         }
         alert(errMsg);

@@ -1,7 +1,5 @@
 import { Injectable } from "@angular/core";
 
-// const KEY = "authToken";
-
 @Injectable({ providedIn: "root" })
 export class TokenService {
   constructor() {}
@@ -11,7 +9,7 @@ export class TokenService {
   }
 
   setToken(key, token) {
-    window.localStorage.setItem(key, token);
+    window.localStorage.setItem(key, (JSON.stringify(token)) );
   }
 
   getToken(key) {

@@ -1,3 +1,4 @@
+import { TokenService } from './../../core/shared/token.service';
 import { CharacterService } from './../shared/character.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -15,7 +16,7 @@ export class CharacterDetailComponent implements OnInit {
   public character: Character;
   public events: Hero[];
 
-  constructor(private activatedRoute: ActivatedRoute, private characterService: CharacterService) { }
+  constructor(private activatedRoute: ActivatedRoute, private characterService: CharacterService, private tokenservice: TokenService) { }
 
   ngOnInit() {
     const characterId = this.getUrlsParams();
@@ -38,6 +39,5 @@ export class CharacterDetailComponent implements OnInit {
       this.events = event.data.results;
     });
   }
-
 
 }

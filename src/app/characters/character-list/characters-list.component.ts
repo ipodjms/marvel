@@ -75,4 +75,6 @@ public autoSearch = new Subject<string>();
      this.addParams('orderBy', event);
    }
 
+   public checkFavorite(id): void { }
+
 }

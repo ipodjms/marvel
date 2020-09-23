@@ -28,8 +28,12 @@
 <div *ngIf="this.models?.data?.results">
     <div *ngFor="let character of this.models.data.results">
         <app-character [character]="character" class="c-pointer"> </app-character>
+        <div>
+            {{checkFavorite(character.id)}}
+        </div>
      </div>
 </div>
 
 
 <button appDebounceClick (debounceClick)="loadMore()">Load More</button>
+
