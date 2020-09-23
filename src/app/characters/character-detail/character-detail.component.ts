@@ -23,15 +23,21 @@ export class CharacterDetailComponent implements OnInit {
       this.characterService.get(characterId).subscribe(character => {
         console.log (character);
         this.character = character;
-      });
-      this.characterService.getEventDetail(characterId).subscribe(event => {
-        console.log(event);
-        this.events = event.data.results;
+        this.getEventDetail(characterId);
       });
     }
   }
 
-  getUrlsParams() {
+  getUrlsParams(): string {
     return this.activatedRoute.snapshot.params.id;
   }
+
+  getEventDetail(id: string): void {
+    this.characterService.getEventDetail(id).subscribe(event => {
+      console.log(event);
+      this.events = event.data.results;
+    });
+  }
+
+
 }

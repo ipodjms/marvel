@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Character } from '../shared/character';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Hero } from '../shared/hero';
 
 @Component({
   selector: 'app-character',
@@ -10,7 +9,7 @@ import { Hero } from '../shared/hero';
 })
 export class CharacterComponent implements OnInit {
 
-  @Input() hero: Hero;
+  @Input() character: Character;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 

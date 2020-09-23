@@ -9,5 +9,7 @@ export class Character {
     public etag?: string;
     public status?: string;
     public id?: string;
+    // internal use
+    public name?: string;
 }
 

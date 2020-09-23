@@ -44,5 +44,9 @@ export class HttpService<T> {
    return this.httpClient.get<T>(`${this.url}/${this.endpoint}?apikey=${environment.API_KEY}`).pipe(map((data) => data as T));
   }
 
+  public getAllWithParams(params: string): Observable<T> {
+    return this.httpClient.get<T>(`${this.url}/${this.endpoint}?${params}apikey=${environment.API_KEY}`).pipe(map((data) => data as T));
+   }
+
 
 }
