@@ -16,5 +16,7 @@ export class Hero {
     public stories: Story[];
     public thumbnail: Thumbnail;
     public urls: Url[];
+    // intetnal use
+    public title: Url[];
 }
 

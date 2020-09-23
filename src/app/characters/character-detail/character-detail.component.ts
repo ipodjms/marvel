@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Character } from '../shared/character';
 import { Observable } from 'rxjs';
+import { Hero } from '../shared/hero';
 
 @Component({
   selector: 'app-character-detail',
@@ -12,6 +13,7 @@ import { Observable } from 'rxjs';
 export class CharacterDetailComponent implements OnInit {
 
   public character: Character;
+  public events: Hero[];
 
   constructor(private activatedRoute: ActivatedRoute, private characterService: CharacterService) { }
 
@@ -21,6 +23,10 @@ export class CharacterDetailComponent implements OnInit {
       this.characterService.get(characterId).subscribe(character => {
         console.log (character);
         this.character = character;
+      });
+      this.characterService.getEventDetail(characterId).subscribe(event => {
+        console.log(event);
+        this.events = event.data.results;
       });
     }
   }

@@ -33,7 +33,11 @@ export class HttpService<T> {
   public get(id: string): Observable<T> {
     console.log (this.endpoint);
     console.log (id);
-    return this.httpClient.get<T>(`${this.url}/${this.endpoint}/${id}`).pipe(map((data) => data as T));
+    return this.httpClient.get<T>(`${this.url}/${this.endpoint}/${id}?apikey=${environment.API_KEY}`).pipe(map((data) => data as T));
+  }
+
+  public getEventDetail(id: string): Observable<T> {
+    return this.httpClient.get<T>(`${this.url}/${this.endpoint}/${id}/events?apikey=${environment.API_KEY}`).pipe(map((data) => data as T));
   }
 
   public getAll(): Observable<T> {

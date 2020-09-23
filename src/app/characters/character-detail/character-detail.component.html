@@ -1,14 +1,26 @@
 
 <mat-card>
-    <mat-card-title>{{character?.title}}</mat-card-title>    
-    
+    <mat-card-title>{{character?.data?.results[0]?.name}}</mat-card-title>    
+    <mat-card-subtitle>id: {{character?.data?.results[0]?.id}}</mat-card-subtitle>
+    <img mat-card-image src="{{character?.data?.results[0]?.thumbnail.path}}.{{character?.data?.results[0]?.thumbnail.extension}} " alt="">
+
     <mat-card-content>
         <p>
-            {{character?.body}}
+            <b>Modificado em:</b> {{character?.data?.results[0]?.modified |  date: 'short'}}
         </p>
       </mat-card-content>
 </mat-card>
 
+
+<div>
+    <h2>Séries</h2>
+        <div *ngFor="let item of this.events">
+            <h5>{{item.title}}</h5>
+            <h5>{{item.description}}</h5>    
+            <img mat-card-image src="{{item.thumbnail.path}}.{{item.thumbnail.extension}} " alt="">
+
+        </div>
+</div>
 
 
 
