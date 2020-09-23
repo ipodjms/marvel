@@ -1,0 +1,15 @@
+<div class="header">
+    <button mat-button color="primary" [matMenuTriggerFor]="menu">Menu</button>
+
+    <h2>Json PlaceHolder</h2>
+
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="navigateToCharacters()">Characters</button>
+        <button mat-menu-item (click)="navigateToAlbuns()">Albuns</button>
+      <button mat-menu-item (click)="navigateToTodo()">Todos</button>
+    </mat-menu>
+
+  
+</div>
+
+
