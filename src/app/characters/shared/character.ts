@@ -1,10 +1,13 @@
 import { Data } from './data';
 
 export class Character {
-    public userId?: string;
-    public id?: string;
-    public title?: string;
-    public body?: string;
+    public attributionHTML?: string;
+    public attributionText?: string;
+    public code?: string;
+    public copyright?: string;
     public data?: Data;
+    public etag?: string;
+    public status?: string;
+    public id?: string;
 }
 
