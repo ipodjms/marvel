@@ -25,7 +25,7 @@
 
 
 <div *ngIf="this.models?.data?.results" class="row">
-    <div *ngFor="let character of this.models.data.results" class="col-4">
+    <div *ngFor="let character of this.models.data.results" class="col-md-4 col-sm-12">
         <app-character [character]="character" class="c-pointer"> </app-character>        
      </div>
 </div>
