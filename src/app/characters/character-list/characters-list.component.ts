@@ -50,11 +50,15 @@ public autoSearch = new Subject<string>();
     this.allParams.map(param => {
       this.params = this.params += param.key + '=' + param.value + '&';
     });
-    console.log (this.params);
     this.service.getAllWithParams(this.params).subscribe(result => {
       console.log(result);
       this.models = result;
     });
+   }
+
+   public orderBy(event): void {
+     console.log (event);
+    this.addParams('orderBy', event);
    }
 
 }

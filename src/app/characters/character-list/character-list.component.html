@@ -14,6 +14,16 @@
       name="subject"
     />
 
+    <p>Order by</p>
+    <h4>Basic mat-select</h4>
+    <mat-form-field appearance="fill">
+        <mat-label>Choose an option</mat-label>
+        <mat-select (valueChange)="orderBy($event)">
+          <mat-option value="name">ASC</mat-option>
+          <mat-option value="-name">DESC</mat-option>
+        </mat-select>
+    </mat-form-field>
+
 
 <div *ngIf="this.models?.data?.results">
     <div *ngFor="let character of this.models.data.results">
