@@ -5,7 +5,7 @@ import {
   HttpInterceptor,
 } from '@angular/common/http';
 import { HttpRequest } from '@angular/common/http';
-import { HttpHandler } from '@angular/common/http'; 
+import { HttpHandler } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
@@ -16,7 +16,7 @@ export class RequestInterceptor implements HttpInterceptor {
   public intercept(
     request: HttpRequest<any>,
     next: HttpHandler
-  ): Observable<HttpEvent<any>> { 
+  ): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
         let errMsg = 'deu erro';
