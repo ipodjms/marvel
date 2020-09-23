@@ -18,7 +18,7 @@ export class ListBaseComponent<M extends ModelBase, S extends HttpService<M>> im
   }
 
   public list(): void {
-    this.service.getAll().subscribe((models) => {
+    this.service.getAll('').subscribe((models) => {
       this.models = models;
     });
 

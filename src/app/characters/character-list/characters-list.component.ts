@@ -1,10 +1,8 @@
 import { CharacterService } from '../shared/character.service';
 import { Component, OnInit, Injector } from '@angular/core';
-import { HttpService } from 'src/app/core/http/http.service';
 import { Character } from '../shared/character';
 import { ListBaseComponent } from 'src/app/core/list-base';
 import { Router, ActivatedRoute } from '@angular/router';
-import { publicDecrypt } from 'crypto';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
@@ -21,6 +19,7 @@ public params = '';
 public allParams: {key: string, value: string}[] = [];
 public searchText = '';
 public selected = '';
+public offSet = 20;
 
 public autoSearch = new Subject<string>();
 
@@ -49,11 +48,25 @@ public autoSearch = new Subject<string>();
     this.selected = null;
     this.params = '';
     this.allParams.map(param => {
-      this.params = this.params += param.key + '=' + param.value + '&';
+      this.params =  this.params += param.key + '=' + param.value + '&';
     });
-    this.service.getAllWithParams(this.params).subscribe(result => {
+    this.service.getAllWithParams(this.params, '').subscribe(result => {
       console.log(result);
       this.models = result;
+    });
+   }
+
+   public loadMore(): void {
+    this.offSet = this.offSet + 20;
+    const limit = 20;
+    let finalLimit = 'limit=';
+    finalLimit = finalLimit + String(limit) + '&';
+
+    this.service.getAllWithParams(finalLimit + this.params, String(this.offSet)).subscribe(result => {
+      console.log(result);
+      result.data.results.map (r => {
+        this.models.data.results.push(r);
+      });
     });
    }
 

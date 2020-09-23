@@ -40,12 +40,14 @@ export class HttpService<T> {
     return this.httpClient.get<T>(`${this.url}/${this.endpoint}/${id}/events?apikey=${environment.API_KEY}`).pipe(map((data) => data as T));
   }
 
-  public getAll(): Observable<T> {
-   return this.httpClient.get<T>(`${this.url}/${this.endpoint}?apikey=${environment.API_KEY}`).pipe(map((data) => data as T));
+  public getAll(offset: string): Observable<T> {
+   // tslint:disable-next-line:max-line-length
+   return this.httpClient.get<T>(`${this.url}/${this.endpoint}?limit=20&offset=${offset}&apikey=${environment.API_KEY}`).pipe(map((data) => data as T));
   }
 
-  public getAllWithParams(params: string): Observable<T> {
-    return this.httpClient.get<T>(`${this.url}/${this.endpoint}?${params}apikey=${environment.API_KEY}`).pipe(map((data) => data as T));
+  public getAllWithParams(params: string, offset: string): Observable<T> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get<T>(`${this.url}/${this.endpoint}?${params}offset=${offset}&apikey=${environment.API_KEY}`).pipe(map((data) => data as T));
    }
 
 

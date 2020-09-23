@@ -18,7 +18,7 @@
     <h4>Basic mat-select</h4>
     <mat-form-field appearance="fill">
         <mat-label>Choose an option</mat-label>
-        <mat-select (valueChange)="orderBy($event)">
+        <mat-select (valueChange)="orderBy($event)" [(value)]="selected">
           <mat-option value="name">ASC</mat-option>
           <mat-option value="-name">DESC</mat-option>
         </mat-select>
@@ -30,3 +30,6 @@
         <app-character [character]="character" class="c-pointer"> </app-character>
      </div>
 </div>
+
+
+<button appDebounceClick (debounceClick)="loadMore()">Load More</button>

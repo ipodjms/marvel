@@ -6,6 +6,7 @@ import { CharacterDetailComponent } from './character-detail/character-detail.co
 import { CharacterComponent } from './character/character.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { DebounceClickDirective } from '../shared/debouce-click.directive';
 
 
 
